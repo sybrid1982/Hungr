@@ -2,12 +2,13 @@
 
 const searchCriteria = {
     templateUrl: './searchCriteria.html',
-    controller: ['RecipePull', function(RecipePull) {
+    controller: ['RecipePull', '$location', function(RecipePull, $location) {
         const vm = this;
         vm.recipeReqs = {};
         vm.search = () => {
-            if(vm.recipeReqs.text !== ''){
+            if (vm.recipeReqs.text !== '') {
                 RecipePull.searchRecipe(vm.recipeReqs);
+                // $location.path("/results");
             } else {
                 console.log("search field cannot be null");
             }

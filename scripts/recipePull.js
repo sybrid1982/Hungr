@@ -1,6 +1,6 @@
 'use strict';
 
-function RecipePull($http){
+function RecipePull($http, $location) {
     const vm = this;
     vm.results = null;
 
@@ -10,6 +10,7 @@ function RecipePull($http){
             method: "GET",
         }).then((response) => {
             vm.results = response;
+            $location.url("/results");
             console.log(vm.results);
         });
     }
