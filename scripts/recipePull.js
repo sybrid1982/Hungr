@@ -13,9 +13,7 @@ function RecipePull($http){
         // If the health requirements aren't empty, then go ahead and build onto the healthAddition string
         if(recipeInfo.reqs !== null && recipeInfo.reqs.length > 0) {
             console.log('not null or empty');
-            // All of this is pretty much bad
             for(let i = 0; i < recipeInfo.reqs.length; i++) {
-                // This part is only partially bad
                 healthAddition += `&diet=${recipeInfo.reqs[i]}`;
             }
         }

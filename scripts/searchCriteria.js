@@ -20,14 +20,15 @@ const searchCriteria = {
             {
                 // Build empty array to hold restrictions
                 let restrictArray = [];
-                console.log(vm.restrictionSelections);
-                // Currently not correct - need to push an array of objects instead
-                // vm.recipeReqs.reqs = vm.restrictionSelections;
+
+                // Loop over the restrictionSelections object
                 for(const restriction in vm.restrictionSelections) {
+                    // For each restriction added to the restrictionSelections, if it has a value of true, push the property name to the array as a restriction to be sent to the factory
                     if(vm.restrictionSelections[restriction] === true) {
                         restrictArray.push(restriction);
                     }
                 }
+                // Take the array built above and put it in recipeReqs to send to the factory
                 vm.recipeReqs.reqs=restrictArray;
 
                 // Send call to factory with requirements
