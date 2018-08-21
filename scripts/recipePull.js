@@ -5,8 +5,28 @@ function RecipePull($http){
     vm.results = null;
 
     vm.searchRecipe = (recipeInfo) => {
+        // Base URL for grabbing recipes with the search text field's text
+        let url = `https://api.edamam.com/search?q=${recipeInfo.text}&app_id=8411dab9&app_key=e39015f1fb6854b7456a750bbca41575`;
+        // This string will hold health restrictions that have been checked
+        let healthAddition = '';
+        console.log(recipeInfo.reqs);
+        // If the health requirements aren't empty, then go ahead and build onto the healthAddition string
+        if(recipeInfo.reqs !== null && recipeInfo.reqs.length > 0) {
+            console.log('not null or empty');
+            // All of this is pretty much bad
+            for(let i = 0; i < recipeInfo.reqs.length; i++) {
+                // This part is only partially bad
+                healthAddition += `&diet=${recipeInfo.reqs[i]}`;
+            }
+        }
+
+        console.log(recipeInfo.reqs.length);
+        url += healthAddition;
+        console.log(healthAddition);
+
+
         return $http({
-            url: `https://api.edamam.com/search?q=${recipeInfo.text}&app_id=8411dab9&app_key=e39015f1fb6854b7456a750bbca41575`,
+            url: url,
             method: "GET",
         }).then((response) => {
             vm.results = response;
