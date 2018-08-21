@@ -4,8 +4,8 @@ const recipeList = {
     template: `
         <section class="recipe__container">
             <ul class="recipe__list">
-                <li>
-                   {{ $ctrl.results.data.hits[1].recipe.label }}
+                <li ng-repeat="recipe in $ctrl.results.data.hits.recipe">
+                   <h1>{{ $ctrl.recipe.label }}</h1>
                 </li>
             </ul>
         </section>
