@@ -3,8 +3,7 @@
 const searchCriteria = {
     // Links to the template for SearchCriteria, which is in its own HTML file
     templateUrl: './searchCriteria.html',
-    controller: ['RecipePull', function(RecipePull) {
-        // gets this and sets to vm
+    controller: ['RecipePull', '$location', function(RecipePull, $location) {
         const vm = this;
         // creates empty object for us to push values onto
         vm.recipeReqs = {};
@@ -33,6 +32,7 @@ const searchCriteria = {
 
                 // Send call to factory with requirements
                 RecipePull.searchRecipe(vm.recipeReqs);
+                // $location.path("/results");
             } else {
                 // Throw error to console if search box is empty
                 console.log("search field cannot be null");

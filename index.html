@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="App">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,12 +8,19 @@
     <title>Document</title>
     <link rel="stylesheet" href='css/styles.css'>
 </head>
+
 <body>
-    <search-criteria></search-criteria>
-    
-    <script src = "https://code.angularjs.org/1.6.5/angular.min.js"></script>
-    <script src = 'scripts/module.js'></script>
-    <script src = 'scripts/recipePull.js'></script>
+    <!-- <search-criteria></search-criteria>
+    <recipe-list></recipe-list> -->
+    <ng-view></ng-view>
+
+    <script src="https://code.angularjs.org/1.6.5/angular.min.js"></script>
+    <script src="https://code.angularjs.org/1.6.5/angular-route.min.js"></script>
+    <script src='scripts/module.js'></script>
+    <script src='scripts/recipePull.js'></script>
     <script src="scripts/searchCriteria.js"></script>
+    <script src="scripts/recipeList.js"></script>
+    <script src="scripts/config.js"></script>
 </body>
+
 </html>
