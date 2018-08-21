@@ -17,6 +17,13 @@ function RecipePull($http, $location) {
                 healthAddition += `&diet=${recipeInfo.reqs[i]}`;
             }
         }
+        // If we have the 'useCalories' checkbox checked, restrict to the calorie range
+        // in the calorie object
+        // NOTE: The calories property on the object is the total number of calories in
+        // the entire dish.  To get calories per serving, take the object's calories and divide by yield
+        if(recipeInfo.calorie.useCalories) {
+            healthAddition+=`&calories=${recipeInfo.calorie.minimum}-${recipeInfo.calorie.maximum}`;
+        }
 
         console.log(recipeInfo.reqs.length);
         url += healthAddition;

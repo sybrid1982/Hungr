@@ -1,6 +1,5 @@
 <form ng-submit='$ctrl.search()'>
     <input type='text' ng-model='$ctrl.recipeReqs.text'>
-    <button>Search</button>
     <section class='restrictions'>
         <span ng-repeat='option in $ctrl.restrictions track by $index'>
             <label>
@@ -8,4 +7,15 @@
             </label>
         </span>
     </section>
+    <span>
+        <input type="checkbox" ng-model='$ctrl.recipeReqs.calorie.useCalories'>
+        <label>
+            Minimum Caloires:  <input type='number' ng-model='$ctrl.recipeReqs.calorie.minimum'>
+        </label>
+        <label>
+            Maximum Calories: <input type='number' ng-model='$ctrl.recipeReqs.calorie.maximum'>
+        </label>
+    </span>
+    <p></p>
+    <button>Search</button>
 </form>
