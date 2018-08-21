@@ -15,4 +15,4 @@ function RecipePull($http){
     }
 }
 
-angular.module('App', []).service('RecipePull', RecipePull);
+angular.module('App').service('RecipePull', RecipePull);

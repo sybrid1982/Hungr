@@ -1,10 +1,7 @@
 'use strict';
 
 const searchCriteria = {
-    template: `
-        <input type='text' ng-model='$ctrl.recipeReqs.text'>
-        <button type='button' ng-click='$ctrl.search();'>Click</button>
-        `,
+    templateUrl: './searchCriteria.html',
     controller: ['RecipePull', function(RecipePull) {
         const vm = this;
         vm.recipeReqs = {};
