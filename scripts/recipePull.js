@@ -28,6 +28,13 @@ function RecipePull($http, $location) {
             method: "GET",
         }).then((response) => {
             vm.results = response;
+
+            // for(let i = 0; i < 10; i++) {
+            //     // vm.results = response.data.hits[i].recipe;
+
+            //     console.log(vm.results);
+                
+            // }
             $location.url("/results");
             console.log(vm.results);
         });
