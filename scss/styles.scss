@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css?family=Abril+Fatface');
+
+$white: #fff;
+$black: #000;
+$placeholder-text-color: #ccc;
+$input-text-color: #7e7e7e;
+$pink: #fe5275;
+$blue: #82e4c9;
+$green: #9fcd6b;
+$bradius: 5px;
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: linear-gradient(to right, #FFE32A, $pink);
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+}
+
+form {
+  margin: 42px auto;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+
+  & .landing_logo {
+      color: $white;
+      text-align: center;
+      font-size: 70px;
+      font-weight: 500;
+      letter-spacing: 5px;
+      font-family: 'Abril Fatface', cursive
+  }
+  
+  & .search__criteria {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      margin: 50px auto;
+
+      & .checkmark {
+        height: 50px;
+        width: 50px;
+        background-color: $white;
+
+        &:after {
+          content: "";
+          position: absolute;
+          display: none;
+        }
+      }
+
+      & .landing_searchbar {
+        padding: 10px;
+        font-size: 16px;
+        border: 0;
+        border-radius: $bradius;
+        color: $input-text-color;
+        margin-bottom: 20px;
+        outline: none;
+
+        
+        &::placeholder {
+          color: $placeholder-text-color;
+        }
+      }
+      & .search_restrictions_container {
+        background-color: $white;
+        border-radius: $bradius;
+        padding: 20px;
+
+        & .landing_restrictions-inputs {
+         
+          & .checkbox__label {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            & .checkbox {
+              width: 20px;
+              height: 20px;
+            }
+          }
+        }
+
+        & label {
+          display: inline-block;
+          background: $pink;
+          margin-bottom: 20px;
+          padding: 10px;
+          border-radius: $bradius;
+          color: $white;
+          width: 94%;
+        }
+
+        & .landing_calories {
+          display: flex;
+          flex-direction: column;
+
+          & .landing_search-button {
+            padding: 10px;
+            background: $green;
+            color: $white;
+            font-size: 16px;
+            text-transform: uppercase;
+            border: none;
+            border-radius: $bradius;
+
+            &:hover {
+              cursor: pointer;
+              background: $blue;
+              transition: .5s;
+            }
+          }
+
+          & label {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+          }
+
+          & .landing_exclude_input {
+            padding: 5px;
+            border: 0;
+            border-radius: $bradius;
+            width: 150px;
+            font-size: 14px;
+          }
+
+          & .calories_container {
+          display: flex;
+
+          & .landing_calories_input {
+              width: 60px;
+              padding: 5px;
+              border-radius: $bradius;
+              border: none;
+              font-size: 14px;
+            }
+          }
+
+          & #firstInput {
+            margin-right: 20px;
+          }
+        } 
+      }
+    }
+}
+
+
+
+
+
+
+
+

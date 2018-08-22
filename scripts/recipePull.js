@@ -44,7 +44,7 @@ function RecipePull($http, $location) {
 
         url = vm.makeCalorieReqs(recipeInfo, url);
 
-        if (recipeInfo.exclusions.foodExclusion) {
+        if (recipeInfo.exclusions) {
             let noSpaceString = recipeInfo.exclusions.foodExclusion.replace(/\s/g, "+");
             url += `&exclude=${noSpaceString}`
         }

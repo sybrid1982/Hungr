@@ -1,0 +1,22 @@
+{
+  "name": "hungr",
+  "version": "1.0.0",
+  "description": "A Recipe Finder Application",
+  "main": "index.js",
+  "scripts": {
+    "compile:scss": "node-sass scss/styles.scss css/styles.css -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sybrid1982/Hungr.git"
+  },
+  "author": "Jalen Parham, Ashley Renick, Sydney Bridges, Chelsye Hannum",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sybrid1982/Hungr/issues"
+  },
+  "homepage": "https://github.com/sybrid1982/Hungr#readme",
+  "devDependencies": {
+    "node-sass": "^4.9.3"
+  }
+}

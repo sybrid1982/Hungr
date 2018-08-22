@@ -2,22 +2,25 @@
     <p class="landing_logo">Hungr</p>
     <section class="search__criteria">
         <input class="landing_searchbar"type='text' placeholder="Search" ng-model='$ctrl.recipeReqs.text'>
-        <section class="landing_restrictions-inputs" ng-repeat='option in $ctrl.restrictions track by $index'>
-            <label>
-                <input type='checkbox' ng-model='$ctrl.restrictionSelections[option]'> {{option}}
-            </label>  
-        </section>
-        <section class="landing_calories">
-            <input type="checkbox" ng-model='$ctrl.recipeReqs.calorie.useCalories'>
-            <label>
-                Min Calories:  <input type='number' ng-model='$ctrl.recipeReqs.calorie.minimum'>
-                Max Calories: <input type='number' ng-model='$ctrl.recipeReqs.calorie.maximum'>
-            </label>
-            <label> 
-            Exclude:   
-            <input type ="text" ng-model='$ctrl.recipeReqs.exclusions.foodExclusion'> 
-            </label>
-            <button class="landing_search-button">Search</button>
+        <section class="search_restrictions_container">
+            <section class="landing_restrictions-inputs" ng-repeat='option in $ctrl.restrictions track by $index'>
+                <label class="checkbox__label">
+                    <span>{{ option }}</span><input class="checkbox" type='checkbox' ng-model='$ctrl.restrictionSelections[option]'>
+                </label>  
+            </section>
+            <section class="landing_calories">
+
+                <label>
+                    Calories: <span class="calories_container"><input class="landing_calories_input" id="firstInput" placeholder="Min" type='number' ng-model='$ctrl.recipeReqs.calorie.minimum'>
+                    <input class="landing_calories_input" type='number' placeholder="Max" ng-model='$ctrl.recipeReqs.calorie.maximum'></span> 
+                </label>
+
+                <label> 
+                Without:   
+                <input class="landing_exclude_input" type ="text" ng-model='$ctrl.recipeReqs.exclusions.foodExclusion' placeholder="e.g. peanuts"> 
+                </label>
+                <button class="landing_search-button">Search</button>
+            </section>
         </section>
     </section>
    
