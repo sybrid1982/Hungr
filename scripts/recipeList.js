@@ -4,8 +4,9 @@ const recipeList = {
     template: `
         <section class="recipe__container">
             <ul class="recipe__list">
-                <li>
-                   {{ $ctrl.results.data.hits[1].recipe.label }}
+                <li ng-repeat="recipe in $ctrl.results track by $index">
+                   <h1>{{ recipe.label }}</h1>
+                   <p>{{ recipe.source }}</p>
                 </li>
             </ul>
         </section>
@@ -13,9 +14,9 @@ const recipeList = {
 
     controller: ["RecipePull", function(RecipePull) {
         const vm = this;
-
+        
         vm.results = RecipePull.results;
-
+       
     }]
 }
 
