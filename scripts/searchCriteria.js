@@ -9,8 +9,8 @@ const searchCriteria = {
         vm.recipeReqs = { calorie: 
             {
                 useCalories: false,
-                minimum: 0,
-                maximum: 0,
+                minimum: '',
+                maximum: '',
             }
         };
         // array that holds options for the diet restrictions

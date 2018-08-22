@@ -8,6 +8,10 @@ function FavoritesService() {
     vm.favorites.unshift(recipe);
     console.log(vm.favorites);
   }
+  vm.deleteFavorites = (index) => {
+    vm.favorites.splice(index,1);
+    console.log(vm.favorites);
+  }
 }
 
 angular
