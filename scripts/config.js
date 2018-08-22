@@ -10,6 +10,9 @@ angular
             .when("/search", {
                 template: `<search-criteria></search-criteria>`
             })
+            .when("/favorites", {
+                template: `<favorites-page></favorites-page>`
+            })
             .otherwise({
                 redirectTo: "/search"
             })
