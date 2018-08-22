@@ -10,15 +10,21 @@ const recipeList = {
                    <button ng-click="$ctrl.addToFavorites(recipe)">Add To Favorites</button>
                 </li>
             </ul>
+            <button ng-click='$ctrl.getMoreResults()'>More Results</button>
         </section>
     `,
 
-    controller: ["RecipePull", "FavoritesService", function(RecipePull, FavoritesService) {
+    controller: ["$route", "RecipePull", "FavoritesService", function($route, RecipePull, FavoritesService) {
         const vm = this;
         
         vm.results = RecipePull.results;
 
         vm.addToFavorites = (recipe) => FavoritesService.addToFavorites(recipe);
+        vm.getMoreResults = () => {
+            RecipePull.searchRecipe(null, false);
+            vm.results = RecipePull.results;
+            $route.reload();
+        }
     }]
 }
 
