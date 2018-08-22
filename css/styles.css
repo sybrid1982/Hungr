@@ -21,3 +21,11 @@ form {
     font-size: 50px;
     font-weight: 500;
 }
+
+.search__criteria {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    margin: 0 auto;
+
+}

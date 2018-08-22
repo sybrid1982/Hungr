@@ -16,7 +16,7 @@ const searchCriteria = {
         // array that holds options for the diet restrictions
         vm.restrictions = [
             'low-carb',
-            'low-sodium',
+            'high-protein',
             'low-fat',
         ];
         vm.search = () => {
