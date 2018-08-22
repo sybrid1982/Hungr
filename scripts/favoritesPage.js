@@ -7,7 +7,7 @@ const favoritesPage = {
         <li ng-repeat="recipe in $ctrl.favorites track by $index">
           <h1>{{ recipe.label }}</h1>
           <p>{{ recipe.source }}</p>
-          <button>Delete</button>
+          <button ng-click="$ctrl.deleteFavorites($index)">Delete</button>
         </li>
     </ul>
   </section>
@@ -15,8 +15,10 @@ const favoritesPage = {
 
   controller: ["FavoritesService", function(FavoritesService) {
     const vm = this;
-
     vm.favorites = FavoritesService.favorites;
+    vm.deleteFavorites = (index) => {
+      FavoritesService.deleteFavorites(index);
+    }
   }]
 }
 
