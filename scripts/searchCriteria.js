@@ -6,7 +6,13 @@ const searchCriteria = {
     controller: ['RecipePull', '$location', function(RecipePull, $location) {
         const vm = this;
         // creates empty object for us to push values onto
-        vm.recipeReqs = {};
+        vm.recipeReqs = { calorie: 
+            {
+                useCalories: false,
+                minimum: 0,
+                maximum: 0,
+            }
+        };
         // array that holds options for the diet restrictions
         vm.restrictions = [
             'low-carb',

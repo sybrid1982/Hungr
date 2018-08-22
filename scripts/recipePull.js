@@ -30,7 +30,7 @@ function RecipePull($http, $location) {
                     healthAddition+=`&calories=${recipeInfo.calorie.minimum}%2B`
                 }
                 // If we reach this else statement, we do not have a minimum value.  If we have a maximum, we should set that as the maximum number of calories.  Otherwise, we ignore the check (as no calorie limits were entered) 
-            } else if (recipe.calorie.maximum > 0) {
+            } else if (recipeInfo.calorie.maximum > 0) {
                 healthAddition+=`&calories=${recipeInfo.calorie.maximum}`
             }
         }
