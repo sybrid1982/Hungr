@@ -36,6 +36,16 @@ function RecipePull($http, $location) {
         return oldUrl;
     }
 
+    vm.randomizeArray = (array) => {
+        let newArray = []
+        while(array.length > 0) {
+            let index = Math.floor(Math.random()*array.length);
+            newArray.push(array[index]);
+            array.splice(index, 1);
+        }
+        return newArray;
+    }
+
     vm.searchRecipe = (recipeInfo) => {
         // Base URL for grabbing recipes with the search text field's text
         let url = `https://api.edamam.com/search?q=${recipeInfo.text}&app_id=8411dab9&app_key=e39015f1fb6854b7456a750bbca41575`;
@@ -49,6 +59,9 @@ function RecipePull($http, $location) {
             url += `&exclude=${noSpaceString}`
         }
 
+        // Get the first 50 results
+        url+='&to=50';
+
         return $http({
             url: url,
             method: "GET",
@@ -56,9 +69,12 @@ function RecipePull($http, $location) {
             // Setting results to equal an empty array.
             vm.results = [];
             // Looping through each of the api response objects and pushing them into the empty results array.
-            for (let i = 0; i < 10; i++) {
+            for (let i = 0; i < 50; i++) {
                 vm.results.push(response.data.hits[i].recipe);
             }
+            // Shuffle the array
+            vm.results = vm.randomizeArray(vm.results);
+
             $location.url("/results");
             console.log(vm.results);
         });
