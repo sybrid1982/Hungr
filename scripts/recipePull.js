@@ -22,7 +22,17 @@ function RecipePull($http, $location) {
         // NOTE: The calories property on the object is the total number of calories in
         // the entire dish.  To get calories per serving, take the object's calories and divide by yield
         if(recipeInfo.calorie.useCalories) {
-            healthAddition+=`&calories=${recipeInfo.calorie.minimum}-${recipeInfo.calorie.maximum}`;
+            // If minimum is greater than zero, then we have a minimum.  From there we have two options: either there is a maximum (and we need to get the recipes in a calorie range), or there isn't (and we just need all meals that meet a minimum calorie count)
+            if(recipeInfo.calorie.minimum > 0) {
+                if(recipeInfo.calorie.maximum > 0) {
+                    healthAddition+=`&calories=${recipeInfo.calorie.minimum}-${recipeInfo.calorie.maximum}`;
+                } else {
+                    healthAddition+=`&calories=${recipeInfo.calorie.minimum}%2B`
+                }
+                // If we reach this else statement, we do not have a minimum value.  If we have a maximum, we should set that as the maximum number of calories.  Otherwise, we ignore the check (as no calorie limits were entered) 
+            } else if (recipe.calorie.maximum > 0) {
+                healthAddition+=`&calories=${recipeInfo.calorie.maximum}`
+            }
         }
 
         console.log(recipeInfo.reqs.length);
