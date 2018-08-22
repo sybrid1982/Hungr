@@ -44,7 +44,12 @@ function RecipePull($http, $location) {
             url: url,
             method: "GET",
         }).then((response) => {
-            vm.results = response;
+            // Setting results to equal an empty array.
+            vm.results = [];
+            // Looping through each of the api response objects and pushing them into the empty results array.
+            for(let i = 0; i < 10; i++) {
+                vm.results.push(response.data.hits[i].recipe);                
+            }
             $location.url("/results");
             console.log(vm.results);
         });
