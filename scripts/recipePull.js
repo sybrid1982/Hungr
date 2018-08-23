@@ -3,8 +3,8 @@
 function RecipePull($http, $location) {
     const vm = this;
     vm.lastRecipeInfo = null;
-    vm.results = null;
-    const numOfResultsPerCall = 50;
+    vm.results = [];
+    const numOfResultsPerCall = 48;
     vm.lastEndPointForResults = null;
 
     vm.makeHealthReqs = (recipeInfo, healthAddition) => {
@@ -53,6 +53,7 @@ function RecipePull($http, $location) {
         if(resetTracker) {
             vm.lastEndPointForResults = null;
             vm.lastRecipeInfo = recipeInfo;
+            vm.results = [];
         }
         if(vm.lastRecipeInfo === null) {
             vm.lastRecipeInfo = recipeInfo;
@@ -84,14 +85,18 @@ function RecipePull($http, $location) {
             url: url,
             method: "GET",
         }).then((response) => {
-            // Setting results to equal an empty array.
-            vm.results = [];
             // Looping through each of the api response objects and pushing them into the empty results array.
+            let tempResults = [];
+
             for (let i = 0; i < response.data.hits.length; i++) {
-                vm.results.push(response.data.hits[i].recipe);
+                tempResults.push(response.data.hits[i].recipe);
             }
             // Shuffle the array
-            vm.results = vm.randomizeArray(vm.results);
+            tempResults = vm.randomizeArray(tempResults);
+
+            for (let i = 0; i < tempResults.length; i++) {
+                vm.results.push(tempResults[i]);
+            }
 
             $location.url("/results");
             console.log(vm.results);
