@@ -2,12 +2,14 @@
 
 function RecipePull($http, $location) {
     const vm = this;
+    vm.lastRecipeInfo = null;
     vm.results = null;
+    const numOfResultsPerCall = 50;
+    vm.lastEndPointForResults = null;
 
     vm.makeHealthReqs = (recipeInfo, healthAddition) => {
         // If the health requirements aren't empty, then go ahead and build onto the healthAddition string
         if (recipeInfo.reqs !== null && recipeInfo.reqs.length > 0) {
-            console.log('not null or empty');
             for (let i = 0; i < recipeInfo.reqs.length; i++) {
                 healthAddition += `&diet=${recipeInfo.reqs[i]}`;
             }
@@ -36,18 +38,47 @@ function RecipePull($http, $location) {
         return oldUrl;
     }
 
-    vm.searchRecipe = (recipeInfo) => {
+    vm.randomizeArray = (array) => {
+        let newArray = []
+        while(array.length > 0) {
+            let index = Math.floor(Math.random()*array.length);
+            newArray.push(array[index]);
+            array.splice(index, 1);
+        }
+        return newArray;
+    }
+
+    vm.searchRecipe = (recipeInfo, resetTracker) => {
+        
+        if(resetTracker) {
+            vm.lastEndPointForResults = null;
+            vm.lastRecipeInfo = recipeInfo;
+        }
+        if(vm.lastRecipeInfo === null) {
+            vm.lastRecipeInfo = recipeInfo;
+        }
+
         // Base URL for grabbing recipes with the search text field's text
-        let url = `https://api.edamam.com/search?q=${recipeInfo.text}&app_id=8411dab9&app_key=e39015f1fb6854b7456a750bbca41575`;
+        let url = `https://api.edamam.com/search?q=${vm.lastRecipeInfo.text}&app_id=8411dab9&app_key=e39015f1fb6854b7456a750bbca41575`;
 
-        url = vm.makeHealthReqs(recipeInfo, url);
+        url = vm.makeHealthReqs(vm.lastRecipeInfo, url);
 
-        url = vm.makeCalorieReqs(recipeInfo, url);
+        url = vm.makeCalorieReqs(vm.lastRecipeInfo, url);
 
-        if (recipeInfo.exclusions) {
-            let noSpaceString = recipeInfo.exclusions.foodExclusion.replace(/\s/g, "+");
+        if (vm.lastRecipeInfo.exclusions) {
+            let noSpaceString = vm.lastRecipeInfo.exclusions.foodExclusion.replace(/\s/g, "+");
             url += `&exclude=${noSpaceString}`
         }
+
+        if(vm.lastEndPointForResults === null) {
+            vm.lastEndPointForResults = numOfResultsPerCall;
+        } else {
+            vm.lastEndPointForResults += numOfResultsPerCall;
+        }
+        // Get the first numOfResultsPerCall results
+        url+=`&from=${vm.lastEndPointForResults - numOfResultsPerCall}`
+        url+=`&to=${vm.lastEndPointForResults}`;
+
 
         return $http({
             url: url,
@@ -56,9 +87,12 @@ function RecipePull($http, $location) {
             // Setting results to equal an empty array.
             vm.results = [];
             // Looping through each of the api response objects and pushing them into the empty results array.
-            for (let i = 0; i < 10; i++) {
+            for (let i = 0; i < response.data.hits.length; i++) {
                 vm.results.push(response.data.hits[i].recipe);
             }
+            // Shuffle the array
+            vm.results = vm.randomizeArray(vm.results);
+
             $location.url("/results");
             console.log(vm.results);
         });

@@ -37,7 +37,7 @@ const searchCriteria = {
                 vm.recipeReqs.reqs=restrictArray;
 
                 // Send call to factory with requirements
-                RecipePull.searchRecipe(vm.recipeReqs);
+                RecipePull.searchRecipe(vm.recipeReqs, true);
                 // $location.path("/results");
             } else {
                 // Throw error to console if search box is empty
