@@ -8,6 +8,9 @@ $pink: #fe5275;
 $blue: #82e4c9;
 $green: #9fcd6b;
 $bradius: 5px;
+$purple: #DF4AFA;
+$yellow: #FFE32A;
+$peach: #FEA482;
 
 * {
   margin: 0;
@@ -16,17 +19,18 @@ $bradius: 5px;
 
 
 body {
-  background: linear-gradient(to right, #FFE32A, $pink);  
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
 }
 
 .container {
   margin: 0 auto;
   width: 90%;
+  display: flex;
+  flex-direction: column;
 }
 
 .home__container {
-  background: linear-gradient(to right, #FFE32A, $pink);
+  background: linear-gradient(to right, $yellow, $pink);
 }
 
 form {
@@ -177,17 +181,36 @@ form {
     & li {
       position: relative;
 
+      & .delete--button {
+        left: 100px;
+      }
+
       & button {
         position: relative;
         top: 270px;
-        left: 39px;
-        padding: 10px 50px;
+        left: 42px;
+        padding: 10px 20px;
         font-size: 16px;
         border-radius: $bradius;
+        background-color: $peach;
+        border: none;
+        color: $white;
+        font-size: 25px;
+        
 
         &:hover {
           cursor: pointer;
+          background-color: $pink;
+          transition: 0.5s;
         }
+
+        &:focus {
+            background-color: $pink;
+        }
+      }
+
+      & img {
+          border-radius: $bradius;
       }
     }
   }
@@ -202,16 +225,22 @@ form {
     justify-content: space-between;
     align-items: center;
 
+    & .fav--title {
+        font-size: 35px;
+    }
+
     & .logo {
       text-decoration: none;
-      font-size: 30px;
+      font-size: 40px;
+      font-weight: 700;
+      color: $blue;
     }
 
     & input {
       width: 700px;
       padding: 10px;
       font-size: 16px;
-      border: 1px solid $black;
+      border: 1px solid $placeholder-text-color;
       border-radius: $bradius;
     }
 
@@ -219,12 +248,16 @@ form {
       padding: 10px;
       width: 150px;
       font-size: 16px;
-      border: 1px solid $black;
       border-radius: $bradius;
-      background: $blue;
+      background: rgba($blue, .7);
+      color: $white;
+      border: none;
+      font-size: 20px;
 
       &:hover {
         cursor: pointer;
+        background: rgba($blue, 1);
+        transition: 0.5s;
       }
     }
   }
@@ -236,13 +269,100 @@ form {
   align-items: center;
   padding: 20px 0px;
   margin: 0 11px;
-  border-top: 1px solid $black;
-  border-bottom: 1px solid $black;
+  border-top: 1px solid $placeholder-text-color;
+  border-bottom: 1px solid $placeholder-text-color;
+
+  & label {
+      background: linear-gradient(to right, $blue, $green);
+      padding: 8px;
+      border-radius: $bradius;
+      color: white;
+      font-size: 18px;
+  }
 
   & .min, .max {
     padding: 5px;
     border-radius: $bradius;
-    border: 1px solid $black;
+    border: none;
     font-size: 14px;
   }
+
+  & .options {
+    padding: 8px;
+    border-radius: $bradius;
+    font-size: 18px;
+    color: $white;
+  }
+
+  & > :nth-child(2) {
+    background: linear-gradient(to right, $green, $yellow);
+  }
+
+  & > :nth-child(3) {
+      background: linear-gradient(to right, $yellow, $peach);
+  }
+
+  & > :nth-child(4) {
+      background: linear-gradient(to right, $peach, $pink);
+  }
 }
+
+.load--more {
+    width: 10%;
+    margin: 20px auto;
+    padding: 8px;
+    border-radius: $bradius;
+    border: 0;
+    background: linear-gradient(to right, $pink, $purple);
+    color: $white;
+    font-size: 18px;
+
+    &:hover {
+        cursor: pointer;
+        background: linear-gradient(to left, $pink, $purple);
+        transition: 0.5s;
+    }  
+}
+
+// Favorites Component 
+.favorites__container {
+    // width: 90%;
+    margin: 0 auto;
+
+    & .favorites__list {
+        display: flex;
+        flex-wrap: wrap;
+        list-style: none;
+        width: 100%;
+        margin: 0 auto;
+        
+        & li {
+            display: flex;
+            flex-direction: column;
+            margin: 0 15px;
+            width: 22.6%;
+
+            & .delete--button {
+                padding: 10px 40px;
+                text-align: center;
+                margin: 0 auto;
+                position: relative;
+                top: 270px;
+                padding: 10px 20px;
+                font-size: 25px;
+                border-radius: $bradius;
+                background-color: $peach;
+                border: none;
+                color: $white;
+
+                &:hover {
+                    cursor: pointer;
+                    background: rgba($blue, 1);
+                    transition: 0.5s;
+                }
+            }
+        }
+    }
+}
+
+
