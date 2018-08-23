@@ -13,7 +13,8 @@ body {
   flex-direction: column; }
 
 .home__container {
-  background: linear-gradient(to right, #FFE32A, #fe5275); }
+  background: linear-gradient(to right, #FFE32A, #fe5275);
+  height: 100vh; }
 
 form {
   margin: 0px auto;
