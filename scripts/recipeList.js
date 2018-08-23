@@ -21,9 +21,9 @@ const recipeList = {
 
         vm.addToFavorites = (recipe) => FavoritesService.addToFavorites(recipe);
         vm.getMoreResults = () => {
-            RecipePull.searchRecipe(null, false);
-            vm.results = RecipePull.results;
-            $route.reload();
+            RecipePull.searchRecipe(null, false).then(() => {
+                vm.results = RecipePull.results;
+            })
         }
     }]
 }
