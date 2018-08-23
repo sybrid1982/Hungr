@@ -1,5 +1,21 @@
 <search-bar></search-bar>
 <div class="container">
+    <header class="results__header">
+     <nav class="results__header--nav">
+       <a href="#!/search" class="logo">Hungr</a>
+       <input type="text" placeholder="Search">
+       <button class="search--button">Search</button>
+       <button ng-click="$ctrl.location()" class="fav--button">Favorites</button>
+     </nav>
+   </header>
+   <section class="search__criteria--results">
+     <label>
+       Calories: <input class="min" type="number" placeholder="Min"> <input class="max" type="number" placeholder="Max">
+     </label>
+     <div class="options" ng-repeat="option in $ctrl.restrictions">
+       <span>{{ option }}</span> <input type="checkbox">
+     </div>
+   </section>
     <section class="recipe__container">
      <ul class="recipe__list">
        <li recipe="recipe" index="$index" ng-repeat="recipe in $ctrl.results track by $index">
@@ -10,5 +26,7 @@
        </li>
      </ul>
    </section>
+
+   <button ng-click="$ctrl.getMoreResults()" class="load--more">More Recipes</button>
    
  </div>

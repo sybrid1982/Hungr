@@ -3,7 +3,7 @@
 const recipeList = {
     templateUrl: "recipeList.html",
 
-    controller: ["RecipePull", "FavoritesService", function(RecipePull, FavoritesService) {
+    controller: ["RecipePull", "FavoritesService", "$location", function(RecipePull, FavoritesService, $location) {
         const vm = this;
         vm.restrictions = [
             'low-carb',
@@ -18,6 +18,10 @@ const recipeList = {
             RecipePull.searchRecipe(null, false).then(() => {
                 vm.results = RecipePull.results;
             });
+        }
+
+        vm.location = () => {
+            $location.url("/favorites");
         }
     }]
 }

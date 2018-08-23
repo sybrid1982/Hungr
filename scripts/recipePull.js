@@ -4,7 +4,7 @@ function RecipePull($http, $location) {
     const vm = this;
     vm.lastRecipeInfo = null;
     vm.results = null;
-    const numOfResultsPerCall = 50;
+    const numOfResultsPerCall = 48;
     vm.lastEndPointForResults = null;
 
     vm.makeHealthReqs = (recipeInfo, healthAddition) => {
