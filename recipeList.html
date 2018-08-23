@@ -4,7 +4,7 @@
        <a href="#!/search" class="logo">Hungr</a>
        <input type="text" placeholder="Search">
        <button class="search--button">Search</button>
-       <button href="#!/favorites" class="fav--button">Favorites</button>
+       <button ng-click="$ctrl.location()" class="fav--button">Favorites</button>
      </nav>
    </header>
    <section class="search__criteria--results">
@@ -25,5 +25,7 @@
        </li>
      </ul>
    </section>
+
+   <button ng-click="$ctrl.getMoreResults()" class="load--more">More Recipes</button>
    
  </div>
