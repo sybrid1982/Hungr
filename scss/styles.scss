@@ -14,13 +14,23 @@ $bradius: 5px;
   padding: 0;
 }
 
+
 body {
-  background: linear-gradient(to right, #FFE32A, $pink);
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
 }
 
+.container {
+  margin: 0 auto;
+  width: 90%;
+}
+
+.home__container {
+  background: linear-gradient(to right, #FFE32A, $pink);
+}
+
 form {
-  margin: 42px auto;
+  margin: 0px auto;
+  padding: 42px 0;
   max-width: 400px;
   display: flex;
   flex-direction: column;
@@ -99,7 +109,7 @@ form {
           display: flex;
           flex-direction: column;
 
-          & .landing_search-button {
+        & .landing_search-button {
             padding: 10px;
             background: $green;
             color: $white;
@@ -149,10 +159,89 @@ form {
     }
 }
 
+// RecipeList Component
+.recipe__container {
+  // border-bottom: 1px solid $black;
+  margin: 0 11px;
+  width: 90%;
+  margin-top: 15px;
+
+  & .recipe__list {
+    list-style: none;
+    display: grid;
+    grid-template-rows: auto auto auto auto;
+    grid-template-columns: auto auto auto auto;
+    grid-gap: 20px;
+
+    & li {
+      position: relative;
+
+      & button {
+        position: relative;
+        top: 270px;
+        left: 39px;
+        padding: 10px 50px;
+        font-size: 16px;
+        border-radius: $bradius;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
 
 
+.results__header {
+  padding: 10px;
 
+  &--nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
+    & .logo {
+      text-decoration: none;
+      font-size: 30px;
+    }
 
+    & input {
+      width: 700px;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid $black;
+      border-radius: $bradius;
+    }
 
+    & .search--button, .fav--button {
+      padding: 10px;
+      width: 150px;
+      font-size: 16px;
+      border: 1px solid $black;
+      border-radius: $bradius;
+      background: $blue;
 
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.search__criteria--results {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0px;
+  margin: 0 11px;
+  border-top: 1px solid $black;
+  border-bottom: 1px solid $black;
+
+  & .min, .max {
+    padding: 5px;
+    border-radius: $bradius;
+    border: 1px solid $black;
+    font-size: 14px;
+  }
+}
