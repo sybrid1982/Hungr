@@ -1,6 +1,7 @@
 "use strict";
 
 const recipeList = {
+<<<<<<< HEAD
     template: `
         <section class="recipe__container">
             <ul class="recipe__list">
@@ -13,9 +14,17 @@ const recipeList = {
             <button ng-click='$ctrl.getMoreResults()'>More Results</button>
         </section>
     `,
+=======
+    templateUrl: "recipeList.html",
+>>>>>>> 03ccb972e9984858de0a6e5466727c75705560aa
 
     controller: ["RecipePull", "FavoritesService", function(RecipePull, FavoritesService) {
         const vm = this;
+        vm.restrictions = [
+            'low-carb',
+            'high-protein',
+            'low-fat',
+        ];
         
         vm.results = RecipePull.results;
 
