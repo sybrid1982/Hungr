@@ -10,7 +10,6 @@ function RecipePull($http, $location) {
     vm.makeHealthReqs = (recipeInfo, healthAddition) => {
         // If the health requirements aren't empty, then go ahead and build onto the healthAddition string
         if (recipeInfo.reqs !== null && recipeInfo.reqs.length > 0) {
-            console.log('not null or empty');
             for (let i = 0; i < recipeInfo.reqs.length; i++) {
                 healthAddition += `&diet=${recipeInfo.reqs[i]}`;
             }
@@ -50,6 +49,7 @@ function RecipePull($http, $location) {
     }
 
     vm.searchRecipe = (recipeInfo, resetTracker) => {
+        
         if(resetTracker) {
             vm.lastEndPointForResults = null;
             vm.lastRecipeInfo = recipeInfo;
@@ -57,6 +57,7 @@ function RecipePull($http, $location) {
         if(vm.lastRecipeInfo === null) {
             vm.lastRecipeInfo = recipeInfo;
         }
+
         // Base URL for grabbing recipes with the search text field's text
         let url = `https://api.edamam.com/search?q=${vm.lastRecipeInfo.text}&app_id=8411dab9&app_key=e39015f1fb6854b7456a750bbca41575`;
 
@@ -74,18 +75,15 @@ function RecipePull($http, $location) {
         } else {
             vm.lastEndPointForResults += numOfResultsPerCall;
         }
-        console.log(vm.lastEndPointForResults);
         // Get the first numOfResultsPerCall results
         url+=`&from=${vm.lastEndPointForResults - numOfResultsPerCall}`
         url+=`&to=${vm.lastEndPointForResults}`;
 
-        console.log(url);
 
         return $http({
             url: url,
             method: "GET",
         }).then((response) => {
-            console.log(response);
             // Setting results to equal an empty array.
             vm.results = [];
             // Looping through each of the api response objects and pushing them into the empty results array.

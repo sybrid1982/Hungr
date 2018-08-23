@@ -14,7 +14,7 @@ const recipeList = {
         </section>
     `,
 
-    controller: ["$route", "RecipePull", "FavoritesService", function($route, RecipePull, FavoritesService) {
+    controller: ["RecipePull", "FavoritesService", function(RecipePull, FavoritesService) {
         const vm = this;
         
         vm.results = RecipePull.results;
@@ -23,7 +23,7 @@ const recipeList = {
         vm.getMoreResults = () => {
             RecipePull.searchRecipe(null, false).then(() => {
                 vm.results = RecipePull.results;
-            })
+            });
         }
     }]
 }
