@@ -4,21 +4,28 @@
   padding: 0; }
 
 body {
-  background: linear-gradient(to right, #FFE32A, #fe5275);
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; }
 
+.container {
+  margin: 0 auto;
+  width: 90%; }
+
+.home__container {
+  background: linear-gradient(to right, #FFE32A, #fe5275); }
+
 form {
-  margin: 42px auto;
+  margin: 0px auto;
+  padding: 42px 0;
   max-width: 400px;
   display: flex;
   flex-direction: column; }
   form .landing_logo {
     color: #fff;
     text-align: center;
-    font-size: 80px;
+    font-size: 70px;
     font-weight: 500;
-    letter-spacing: 7px;
-    font-family: 'Fredericka the Great', cursive; }
+    letter-spacing: 5px;
+    font-family: 'Abril Fatface', cursive; }
   form .search__criteria {
     display: flex;
     flex-direction: column;
@@ -96,3 +103,64 @@ form {
             font-size: 14px; }
         form .search__criteria .search_restrictions_container .landing_calories #firstInput {
           margin-right: 20px; }
+
+.recipe__container {
+  margin: 0 11px;
+  width: 90%;
+  margin-top: 15px; }
+  .recipe__container .recipe__list {
+    list-style: none;
+    display: grid;
+    grid-template-rows: auto auto auto auto;
+    grid-template-columns: auto auto auto auto;
+    grid-gap: 20px; }
+    .recipe__container .recipe__list li {
+      position: relative; }
+      .recipe__container .recipe__list li button {
+        position: relative;
+        top: 270px;
+        left: 39px;
+        padding: 10px 50px;
+        font-size: 16px;
+        border-radius: 5px; }
+        .recipe__container .recipe__list li button:hover {
+          cursor: pointer; }
+
+.results__header {
+  padding: 10px; }
+  .results__header--nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; }
+    .results__header--nav .logo {
+      text-decoration: none;
+      font-size: 30px; }
+    .results__header--nav input {
+      width: 700px;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #000;
+      border-radius: 5px; }
+    .results__header--nav .search--button, .results__header--nav .fav--button {
+      padding: 10px;
+      width: 150px;
+      font-size: 16px;
+      border: 1px solid #000;
+      border-radius: 5px;
+      background: #82e4c9; }
+      .results__header--nav .search--button:hover, .results__header--nav .fav--button:hover {
+        cursor: pointer; }
+
+.search__criteria--results {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0px;
+  margin: 0 11px;
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000; }
+  .search__criteria--results .min, .search__criteria--results .max {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #000;
+    font-size: 14px; }
