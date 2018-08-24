@@ -240,6 +240,23 @@ form {
     justify-content: space-between;
     align-items: center;
 
+    & .search-button {
+      padding: 10px;
+      width: 150px;
+      font-size: 16px;
+      border-radius: $bradius;
+      background: rgba($blue, .7);
+      color: $white;
+      border: none;
+      font-size: 20px;
+
+      &:hover {
+        cursor: pointer;
+        background: rgba($blue, 1);
+        transition: 0.5s;
+      }
+    }
+
     & .results__title {
         text-transform: uppercase;
         color: $peach;
@@ -267,7 +284,7 @@ form {
       border-radius: $bradius;
     }
 
-    & .search--button, .fav--button {
+    & .fav--button {
       padding: 10px;
       width: 150px;
       font-size: 16px;
@@ -295,6 +312,27 @@ form {
   border-top: 1px solid $placeholder-text-color;
   border-bottom: 1px solid $placeholder-text-color;
 
+  & .search__bar {
+    padding: 10px;
+    border: 1px solid $placeholder-text-color;
+    border-radius: $bradius;
+    width: 250px;
+    font-size: 16px;
+  }
+
+  & .search--button {
+    padding: 11px 30px;
+    border: 0;
+    background: $blue;
+    border-radius: $bradius;
+    color: $white;
+    font-size: 16px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
   & label {
       background: linear-gradient(to right, $blue, $green);
       padding: 8px;
@@ -308,6 +346,7 @@ form {
     border-radius: $bradius;
     border: none;
     font-size: 14px;
+    width: 40px;
   }
 
   & .options {
@@ -317,15 +356,15 @@ form {
     color: $white;
   }
 
-  & > :nth-child(2) {
+  & > :nth-child(3) {
     background: linear-gradient(to right, $green, $yellow);
   }
 
-  & > :nth-child(3) {
+  & > :nth-child(4) {
       background: linear-gradient(to right, $yellow, $peach);
   }
 
-  & > :nth-child(4) {
+  & > :nth-child(5) {
       background: linear-gradient(to right, $peach, $pink);
   }
 }
@@ -356,7 +395,6 @@ form {
 .favorites__container {
     margin: 0 auto 20px auto;
     width: 100%;
-
 
     & .favorites__list {
         display: flex;
