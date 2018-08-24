@@ -8,7 +8,6 @@ const searchCriteria = {
         // creates empty object for us to push values onto
         vm.recipeReqs = { calorie: 
             {
-                useCalories: false,
                 minimum: '',
                 maximum: '',
             }
