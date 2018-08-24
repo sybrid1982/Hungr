@@ -5,7 +5,11 @@ const recipeList = {
 
     controller: ["RecipePull", "FavoritesService", "$location", function(RecipePull, FavoritesService, $location) {
         const vm = this;
-        vm.title = RecipePull.lastRecipeInfo.text;
+        if(RecipePull.lastRecipeInfo) {
+            vm.title = RecipePull.lastRecipeInfo.text;
+        } else {
+            vm.title = 'None'
+        }
         vm.restrictions = [
             'low-carb',
             'high-protein',
