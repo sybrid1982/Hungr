@@ -13,7 +13,8 @@ body {
   flex-direction: column; }
 
 .home__container {
-  background: linear-gradient(to right, #FFE32A, #fe5275); }
+  background: linear-gradient(to right, #FFE32A, #fe5275);
+  height: 100vh; }
 
 form {
   margin: 0px auto;
@@ -25,9 +26,7 @@ form {
     color: #fff;
     text-align: center;
     font-size: 70px;
-    font-weight: 500;
-    letter-spacing: 5px;
-    font-family: 'Abril Fatface', cursive; }
+    font-weight: 700; }
   form .search__criteria {
     display: flex;
     flex-direction: column;
@@ -137,8 +136,15 @@ form {
           transition: 0.5s; }
         .recipe__container .recipe__list li button:focus {
           background-color: #fe5275; }
+      .recipe__container .recipe__list li h1 {
+        color: #fe5275; }
+      .recipe__container .recipe__list li p {
+        color: #525252;
+        font-size: 18px; }
+      .recipe__container .recipe__list li span {
+        color: #9fcd6b; }
       .recipe__container .recipe__list li img {
-        border-radius: 5px; }
+        border-radius: 8px; }
 
 .results__header {
   padding: 10px; }
@@ -146,8 +152,14 @@ form {
     display: flex;
     justify-content: space-between;
     align-items: center; }
-    .results__header--nav .fav--title {
+    .results__header--nav .results__title {
+      text-transform: uppercase;
+      color: #FEA482;
       font-size: 35px; }
+    .results__header--nav .fav--title {
+      font-size: 35px;
+      color: #FEA482;
+      text-transform: uppercase; }
     .results__header--nav .logo {
       text-decoration: none;
       font-size: 40px;
@@ -218,19 +230,32 @@ form {
     background: linear-gradient(to left, #fe5275, #DF4AFA);
     transition: 0.5s; }
 
+.favorites__header {
+  padding: 10px; }
+
 .favorites__container {
-  margin: 0 auto; }
+  margin: 0 auto 20px auto;
+  width: 100%; }
   .favorites__container .favorites__list {
     display: flex;
     flex-wrap: wrap;
     list-style: none;
-    width: 100%;
-    margin: 0 auto; }
+    margin: 0 11px;
+    border-top: 1px solid #ccc; }
     .favorites__container .favorites__list li {
       display: flex;
       flex-direction: column;
-      margin: 0 15px;
-      width: 22.6%; }
+      width: 23%;
+      margin-right: 25.173px; }
+      .favorites__container .favorites__list li h1 {
+        color: #fe5275; }
+      .favorites__container .favorites__list li p {
+        color: #525252;
+        font-size: 18px; }
+      .favorites__container .favorites__list li span {
+        color: #9fcd6b; }
+      .favorites__container .favorites__list li img {
+        border-radius: 8px; }
       .favorites__container .favorites__list li .delete--button {
         padding: 10px 40px;
         text-align: center;

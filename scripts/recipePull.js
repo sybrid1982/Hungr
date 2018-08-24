@@ -6,6 +6,7 @@ function RecipePull($http, $location) {
     vm.results = null;
     const numOfResultsPerCall = 48;
     vm.lastEndPointForResults = null;
+    vm.searchWord = null;
 
     vm.makeHealthReqs = (recipeInfo, healthAddition) => {
         // If the health requirements aren't empty, then go ahead and build onto the healthAddition string
@@ -84,6 +85,8 @@ function RecipePull($http, $location) {
             url: url,
             method: "GET",
         }).then((response) => {
+            // vm.lastRecipeInfo.text;
+            console.log(vm.lastRecipeInfo.text)
             // Setting results to equal an empty array.
             vm.results = [];
             // Looping through each of the api response objects and pushing them into the empty results array.
