@@ -5,6 +5,7 @@ const recipeList = {
 
     controller: ["RecipePull", "FavoritesService", "$location", function(RecipePull, FavoritesService, $location) {
         const vm = this;
+        vm.title = RecipePull.lastRecipeInfo.text;
         vm.restrictions = [
             'low-carb',
             'high-protein',

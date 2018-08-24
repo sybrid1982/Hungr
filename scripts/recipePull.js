@@ -6,6 +6,7 @@ function RecipePull($http, $location) {
     vm.results = [];
     const numOfResultsPerCall = 48;
     vm.lastEndPointForResults = null;
+    vm.searchWord = null;
 
     vm.makeHealthReqs = (recipeInfo, healthAddition) => {
         // If the health requirements aren't empty, then go ahead and build onto the healthAddition string

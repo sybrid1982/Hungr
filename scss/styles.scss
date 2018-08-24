@@ -8,9 +8,12 @@ $pink: #fe5275;
 $blue: #82e4c9;
 $green: #9fcd6b;
 $bradius: 5px;
+$picradius: 8px;
 $purple: #DF4AFA;
 $yellow: #FFE32A;
 $peach: #FEA482;
+$dark-grey: #969696;
+$darker-grey: #525252;
 
 * {
   margin: 0;
@@ -45,9 +48,7 @@ form {
       color: $white;
       text-align: center;
       font-size: 70px;
-      font-weight: 500;
-      letter-spacing: 5px;
-      font-family: 'Abril Fatface', cursive
+      font-weight: 700;
   }
   
   & .search__criteria {
@@ -210,8 +211,21 @@ form {
         }
       }
 
+      & h1 {
+          color: $pink;
+      }
+
+      & p {
+          color: $darker-grey;
+          font-size: 18px;
+      }
+
+      & span {
+          color: $green;
+      }
+
       & img {
-          border-radius: $bradius;
+          border-radius: $picradius;
       }
     }
   }
@@ -226,8 +240,16 @@ form {
     justify-content: space-between;
     align-items: center;
 
+    & .results__title {
+        text-transform: uppercase;
+        color: $peach;
+        font-size: 35px;
+    }
+
     & .fav--title {
         font-size: 35px;
+        color: $peach;
+        text-transform: uppercase;
     }
 
     & .logo {
@@ -326,22 +348,50 @@ form {
 }
 
 // Favorites Component 
+
+.favorites__header {
+    padding: 10px;
+}
+
 .favorites__container {
-    // width: 90%;
-    margin: 0 auto;
+    margin: 0 auto 20px auto;
+    width: 100%;
+
 
     & .favorites__list {
         display: flex;
         flex-wrap: wrap;
         list-style: none;
-        width: 100%;
-        margin: 0 auto;
+        // width: 100%;
+        // margin: 0 auto;
+        margin: 0 11px;
+        border-top: 1px solid $placeholder-text-color;
         
         & li {
             display: flex;
             flex-direction: column;
-            margin: 0 15px;
-            width: 22.6%;
+            // margin: 0 0px 0 15px;
+            // justify-content: space-between;
+            width: 23%;
+            margin-right: 25.173px;
+
+            & h1 {
+                color: $pink;
+    
+            }
+      
+            & p {
+                color: $darker-grey;
+                font-size: 18px;
+            }
+      
+            & span {
+                color: $green;
+            }
+
+            & img {
+                border-radius: $picradius;
+            }
 
             & .delete--button {
                 padding: 10px 40px;
