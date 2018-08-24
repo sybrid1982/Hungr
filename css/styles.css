@@ -152,6 +152,19 @@ form {
     display: flex;
     justify-content: space-between;
     align-items: center; }
+    .results__header--nav .search-button {
+      padding: 10px;
+      width: 150px;
+      font-size: 16px;
+      border-radius: 5px;
+      background: rgba(130, 228, 201, 0.7);
+      color: #fff;
+      border: none;
+      font-size: 20px; }
+      .results__header--nav .search-button:hover {
+        cursor: pointer;
+        background: #82e4c9;
+        transition: 0.5s; }
     .results__header--nav .results__title {
       text-transform: uppercase;
       color: #FEA482;
@@ -171,7 +184,7 @@ form {
       font-size: 16px;
       border: 1px solid #ccc;
       border-radius: 5px; }
-    .results__header--nav .search--button, .results__header--nav .fav--button {
+    .results__header--nav .fav--button {
       padding: 10px;
       width: 150px;
       font-size: 16px;
@@ -180,7 +193,7 @@ form {
       color: #fff;
       border: none;
       font-size: 20px; }
-      .results__header--nav .search--button:hover, .results__header--nav .fav--button:hover {
+      .results__header--nav .fav--button:hover {
         cursor: pointer;
         background: #82e4c9;
         transition: 0.5s; }
@@ -193,6 +206,21 @@ form {
   margin: 0 11px;
   border-top: 1px solid #ccc;
   border-bottom: 1px solid #ccc; }
+  .search__criteria--results .search__bar {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 250px;
+    font-size: 16px; }
+  .search__criteria--results .search--button {
+    padding: 11px 30px;
+    border: 0;
+    background: #82e4c9;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px; }
+    .search__criteria--results .search--button:hover {
+      cursor: pointer; }
   .search__criteria--results label {
     background: linear-gradient(to right, #82e4c9, #9fcd6b);
     padding: 8px;
@@ -203,17 +231,18 @@ form {
     padding: 5px;
     border-radius: 5px;
     border: none;
-    font-size: 14px; }
+    font-size: 14px;
+    width: 40px; }
   .search__criteria--results .options {
     padding: 8px;
     border-radius: 5px;
     font-size: 18px;
     color: #fff; }
-  .search__criteria--results > :nth-child(2) {
-    background: linear-gradient(to right, #9fcd6b, #FFE32A); }
   .search__criteria--results > :nth-child(3) {
-    background: linear-gradient(to right, #FFE32A, #FEA482); }
+    background: linear-gradient(to right, #9fcd6b, #FFE32A); }
   .search__criteria--results > :nth-child(4) {
+    background: linear-gradient(to right, #FFE32A, #FEA482); }
+  .search__criteria--results > :nth-child(5) {
     background: linear-gradient(to right, #FEA482, #fe5275); }
 
 .load--more {
