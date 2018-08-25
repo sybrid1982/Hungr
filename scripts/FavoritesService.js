@@ -5,18 +5,10 @@ function FavoritesService() {
   vm.favList = JSON.parse(localStorage.getItem("favs")) || [];
 
   vm.addToFavorites = (recipe) => {
-    vm.addToLocalStorage(recipe);
-  }
-  vm.deleteFavorites = (index) => {
-    vm.removeFromLocalStorage(index);
-  }
-
-  vm.addToLocalStorage = (recipe) => {
     vm.favList.unshift(recipe);
     localStorage.setItem("favs", JSON.stringify(vm.favList));
   }
-
-  vm.removeFromLocalStorage = (index) => {
+  vm.deleteFavorites = (index) => {
     vm.favList.splice(index,1);
     localStorage.setItem("favs", JSON.stringify(vm.favList));
   }

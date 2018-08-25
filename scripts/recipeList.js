@@ -3,7 +3,7 @@
 const recipeList = {
     templateUrl: "recipeList.html",
 
-    controller: ["RecipePull", "FavoritesService", "$location", function(RecipePull, FavoritesService, $location, $element) {
+    controller: ["RecipePull", "FavoritesService", "$location", function(RecipePull, FavoritesService, $location) {
         const vm = this;
         vm.recipeTitle = "Recipes With"
 
@@ -30,7 +30,6 @@ const recipeList = {
         vm.addToFavorites = (recipe) => {
             FavoritesService.addToFavorites(recipe);
             vm.hideAddButton(index);
-            $element.css("opacity", "0").css("transition", "0.5s");
         }
 
         vm.getMoreResults = () => {
