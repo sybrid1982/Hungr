@@ -2,27 +2,23 @@
 
 function FavoritesService() {
   const vm = this;
-  vm.favorites = [];
-  
+  vm.favList = JSON.parse(localStorage.getItem("favs")) || [];
 
   vm.addToFavorites = (recipe) => {
-    vm.favorites.unshift(recipe);
     vm.addToLocalStorage(recipe);
   }
   vm.deleteFavorites = (index) => {
-    vm.favorites.splice(index,1);
     vm.removeFromLocalStorage(index);
   }
 
-  vm.favList = [];
   vm.addToLocalStorage = (recipe) => {
-    vm.favList.push(recipe);
-    localStorage.setItem("favorites", JSON.stringify(vm.favList)); 
+    vm.favList.unshift(recipe);
+    localStorage.setItem("favs", JSON.stringify(vm.favList));
   }
 
   vm.removeFromLocalStorage = (index) => {
     vm.favList.splice(index,1);
-    localStorage.setItem("favorites", JSON.stringify(vm.favList));
+    localStorage.setItem("favs", JSON.stringify(vm.favList));
   }
 }
 

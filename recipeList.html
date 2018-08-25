@@ -2,7 +2,7 @@
     <header class="results__header">
      <nav class="results__header--nav">
        <a href="#!/search" class="logo">Hungr</a>
-       <h1 class="results__title">Recipes with {{ $ctrl.title }}</h1>
+       <h1 class="results__title">{{ $ctrl.recipeTitle }} {{ $ctrl.title }}</h1>
        <button ng-click="$ctrl.location()" class="fav--button">Favorites</button>
      </nav>
    </header>
@@ -21,7 +21,7 @@
    </section>
     <section class="recipe__container">
      <ul class="recipe__list">
-       <li recipe="recipe" index="$index" ng-repeat="recipe in $ctrl.results track by $index">
+       <li ng-repeat="recipe in $ctrl.results track by $index">
          <button ng-click="$ctrl.addToFavorites(recipe)">Add To Favorites</button>
          <a href="{{ recipe.url }}" target="_blank"><img src="{{ recipe.image }}"></a>
          <h1 class="recipe__label">{{ recipe.label }}</h1>
