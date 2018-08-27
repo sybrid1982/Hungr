@@ -5,10 +5,13 @@ const recipeList = {
 
     controller: ["RecipePull", "FavoritesService", "$location", function(RecipePull, FavoritesService, $location) {
         const vm = this;
+        vm.recipeTitle = "Recipes With"
+
         if(RecipePull.lastRecipeInfo) {
             vm.title = RecipePull.lastRecipeInfo.text;
         } else {
-            vm.title = 'None'
+            vm.recipeTitle = "Search For"
+            vm.title = 'Recipes'
         }
         vm.restrictions = [
             'low-carb',
@@ -24,7 +27,11 @@ const recipeList = {
 
         vm.results = RecipePull.results;
 
-        vm.addToFavorites = (recipe) => FavoritesService.addToFavorites(recipe);
+        vm.addToFavorites = (recipe) => {
+            FavoritesService.addToFavorites(recipe);
+            vm.hideAddButton(index);
+        }
+
         vm.getMoreResults = () => {
             RecipePull.searchRecipe(null, false).then(() => {
                 vm.results = RecipePull.results;
@@ -52,6 +59,10 @@ const recipeList = {
                 RecipePull.searchRecipe(vm.recipeReqs, true).then(()=>{
                     vm.results = RecipePull.results;
                 });
+
+                vm.title = vm.recipeReqs.text;
+
+                vm.show = false;
             } else {
                 // Throw error to console if search box is empty
                 console.log("search field cannot be null");
