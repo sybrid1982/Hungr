@@ -1,0 +1,39 @@
+<div class="container">
+    <header class="results__header">
+     <nav class="results__header--nav">
+       <a href="#!/search" class="logo">Hungr</a>
+       <h1 class="results__title">{{ $ctrl.recipeTitle }} {{ $ctrl.title }}</h1>
+       <button ng-click="$ctrl.location()" class="fav--button">Favorites</button>
+     </nav>
+   </header>
+   <section class="search__criteria--results">
+     <div>
+        <input class="search__bar" type="text" placeholder="Search" ng-model='$ctrl.recipeReqs.text'>
+        <button class="search--button" ng-click="$ctrl.search()">Search</button>
+     </div>
+      
+      <label>
+        Calories: <input class="min" type="number" placeholder="Min" ng-model="$ctrl.recipeReqs.calorie.minimum"> <input class="max" type="number" placeholder="Max"ng-model="$ctrl.recipeReqs.calorie.maximum">
+      </label>
+     <div class="options" ng-repeat="option in $ctrl.restrictions">
+       <span>{{ option }}</span> <input type="checkbox" ng-model='$ctrl.restrictionSelections[option]'>
+     </div>
+   </section>
+    <section class="recipe__container">
+     <ul class="recipe__list">
+       <li ng-repeat="recipe in $ctrl.results track by $index">
+         <button ng-click="$ctrl.addToFavorites(recipe)">Add To Favorites</button>
+         <a href="{{ recipe.url }}" target="_blank"><img src="{{ recipe.image }}"></a>
+         <h1 class="recipe__label">{{ recipe.label }}</h1>
+         <p>Source: <span>{{ recipe.source }}</span></p>
+         <details>
+           <summary>Ingredients</summary>
+           <p ng-repeat="ingredient in recipe.ingredients">- {{ ingredient.text }}</p>
+         </details>
+       </li>
+     </ul>
+   </section>
+
+   <button ng-click="$ctrl.getMoreResults()" class="load--more">More Recipes</button>
+   
+ </div>

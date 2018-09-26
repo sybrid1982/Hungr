@@ -35,8 +35,8 @@ function RecipePull($http, $location) {
 
     vm.randomizeArray = (array) => {
         let newArray = []
-        while(array.length > 0) {
-            let index = Math.floor(Math.random()*array.length);
+        while (array.length > 0) {
+            let index = Math.floor(Math.random() * array.length);
             newArray.push(array[index]);
             array.splice(index, 1);
         }
@@ -44,13 +44,13 @@ function RecipePull($http, $location) {
     }
 
     vm.searchRecipe = (recipeInfo, resetTracker) => {
-        
-        if(resetTracker) {
+
+        if (resetTracker) {
             vm.lastEndPointForResults = null;
             vm.lastRecipeInfo = recipeInfo;
             vm.results = [];
         }
-        if(vm.lastRecipeInfo === null) {
+        if (vm.lastRecipeInfo === null) {
             vm.lastRecipeInfo = recipeInfo;
         }
 
@@ -66,15 +66,15 @@ function RecipePull($http, $location) {
             url += `&exclude=${noSpaceString}`
         }
 
-        if(vm.lastEndPointForResults === null) {
+        if (vm.lastEndPointForResults === null) {
             vm.lastEndPointForResults = 0;
         }
-        url+=`&from=${vm.lastEndPointForResults}`
+        url += `&from=${vm.lastEndPointForResults}`
 
         vm.lastEndPointForResults += numOfResultsPerCall;
 
         // Get the first numOfResultsPerCall results
-        url+=`&to=${vm.lastEndPointForResults}`;
+        url += `&to=${vm.lastEndPointForResults}`;
 
         console.log(url);
 
@@ -105,6 +105,9 @@ function RecipePull($http, $location) {
     vm.getLastSearchParams = () => {
         return vm.lastRecipeInfo;
     }
+
+    RecipePull.$inject = ["$http", "$location"];
+
 }
 
 angular.module('App').service('RecipePull', RecipePull);
